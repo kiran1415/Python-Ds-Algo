@@ -1,19 +1,17 @@
-lst = [1,3,4,1,1,5,4,6,2,2,7,9,5,5]
+lst = [1,3,4,1,3,5,4,6,1,2,7,9,3,5]
 
-stack = []
-ans = []
-stack.append(lst[0])
-print(stack)
-for i in range(1,len(lst)-1,1):
-    print(lst[i])
-    while len(stack) > 0:
-        #print(2)
-        top = stack[-1]
-        print(top)
-        if lst[i]>top:
-            print("inside if")
-            stack.pop()
-            stack.append(lst[i])
-            ans.append(lst[i])
+def nge(arr):
+    l  = len(arr)
+    op = [-1] * l
+    st = []
+    for i in range(len(arr)-1, -1, -1):
+        while st and st[-1] <= arr[i]:
+            st.pop()
 
-print(ans)
+        if st:
+            op[i] = st[-1]
+        st.append(arr[i])
+    return op
+
+print(nge(lst))
+
