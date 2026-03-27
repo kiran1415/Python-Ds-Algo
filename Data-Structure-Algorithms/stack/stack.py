@@ -4,9 +4,13 @@ class Stack:
 
     def push(self,data):
         self.stack.append(data)
+        print("element has been added into the stack", data)
+        print("new stack is :", self.stack)
     
     def pop(self):
         self.stack.pop()
+        print("element has been popped ")
+        print("new stack is: ", self.stack)
     
     def peek(self):
         print(self.stack[len(self.stack)-1])

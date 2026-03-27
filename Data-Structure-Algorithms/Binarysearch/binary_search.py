@@ -1,24 +1,18 @@
-def binary_search(nums,target):
-    high = len(nums)
+def binary_search(nums, target):
     low = 0
+    high = len(nums)-1
 
     while low < high:
-        import pdb;pdb.set_trace()
-        mid = int(high/2)
-        if nums[mid] == target:
-            return mid
+        mid = (low+high) //2
+        if nums[mid] <= target:
+            low = mid+1
         else:
-            if target>nums[mid]:
-                low = mid
-            elif target<nums[mid]:
-                high = mid
-    return 0
+            high = mid
+    return low, high
 
 
 
+nums = [1,4,4,4,5,6,7,8,9,10]
+target = 4
 
-
-nums = [1,3,5,6]
-target = 2
-
-print(binary_search(nums,target))
+print(binary_search(nums, target))
